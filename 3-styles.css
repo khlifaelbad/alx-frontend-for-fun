@@ -1,0 +1,110 @@
+/*! Custom Interactive Menu | Modernized Design */
+html {
+    line-height: 1.2;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Menu Styling */
+.menu {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 100px;
+    padding-top: 20px;
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.menu-open {
+    display: none;
+}
+
+.menu:has(.menu-open:checked) {
+    height: 420px;
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-open-button {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #9e2238;
+    border-radius: 50%;
+    background-color: #b71e34;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.menu-open:not(:checked) + .menu-open-button:hover {
+    transform: scale(1.2);
+    background-color: #9e2238;
+}
+
+.menu-open:checked + .menu-open-button {
+    height: 65px;
+    width: 65px;
+    margin-bottom: 25px;
+}
+
+.menu-line {
+    width: 30px;
+    height: 4px;
+    background-color: #ffffff;
+    margin: 4px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-open:checked + .menu-open-button .menu-line-1 {
+    transform: rotate(45deg) translate(5px, 5px);
+    width: 25px;
+}
+
+.menu-open:checked + .menu-open-button .menu-line-2 {
+    transform: rotate(-45deg) translate(5px, -5px);
+    width: 25px;
+}
+
+.menu-open:checked + .menu-open-button .menu-line-3 {
+    opacity: 0;
+}
+
+/* Menu Items */
+.menu-item {
+    margin-bottom: 12px;
+    text-decoration: none;
+    background-color: #b71e34;
+    color: #ffffff;
+    height: 55px;
+    width: 55px;
+    border: 2px solid #9e2238;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-item:hover {
+    background-color: #ffffff;
+    color: #b71e34;
+    transform: scale(1.1);
+}
+
+.menu-open:not(:checked) ~ .menu-item {
+    display: none;
+}
